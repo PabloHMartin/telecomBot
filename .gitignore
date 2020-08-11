@@ -9,6 +9,7 @@
 
 # dependencies
 /node_modules
+/functions/telecomchatbot-3c2ef-firebase-adminsdk-3y9iv-2cc5853839.json
 
 # profiling files
 chrome-profiler-events*.json
