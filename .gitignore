@@ -10,6 +10,9 @@
 # dependencies
 /node_modules
 
+#config
+/functions/phmartinchatbot-firebase-adminsdk-voudy-3a90819e7f.json
+
 # profiling files
 chrome-profiler-events*.json
 speed-measure-plugin*.json
