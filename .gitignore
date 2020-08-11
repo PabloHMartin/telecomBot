@@ -9,6 +9,7 @@
 
 # dependencies
 /node_modules
+/functions/telecomchatbot-3c2ef-firebase-adminsdk-3y9iv-2cc5853839.json
 
 #config
 /functions/phmartinchatbot-firebase-adminsdk-voudy-3a90819e7f.json
