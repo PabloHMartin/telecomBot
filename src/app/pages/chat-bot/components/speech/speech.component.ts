@@ -6,6 +6,10 @@ export interface IWindow extends Window {
   webkitSpeechRecognition: any;
 }
 
+export interface ISpeechEvent extends Event {
+  results: any;
+}
+
 @Component({
   selector: 'app-speech',
   templateUrl: './speech.component.html',
@@ -34,7 +38,7 @@ export class SpeechComponent implements OnInit {
 
     this.SpeechToText = fromEvent(this.recognition, 'result')
     .pipe(
-      map( event => {
+      map( (event: ISpeechEvent) => {
         return event.results[0][0].transcript;
       })
     );
