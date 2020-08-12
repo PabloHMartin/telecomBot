@@ -55,7 +55,7 @@ exports.dialogflowWebhook = functions.https.onRequest(async (request, response) 
 
 
     let intentMap = new Map();
-    intentMap.set('UserOnboarding', userOnboardingHandler);
+    //intentMap.set('UserOnboarding', userOnboardingHandler);
     intentMap.set('Default Welcome Intent', welcome);
     agent.handleRequest(intentMap);
 });
