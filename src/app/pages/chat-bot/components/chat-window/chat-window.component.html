@@ -1,4 +1,6 @@
-<nb-chat title="Test Chatbot">
+<nb-chat title="Test Chatbot"
+         size="medium"
+         status="info">
   <nb-chat-message *ngFor="let msg of messages"
                    type="text"
                    scrollBottom="true"
@@ -19,7 +21,9 @@
 </nb-chat-message>
 
 
-  <nb-chat-form (send)="handleUserMessage($event)" [dropFiles]="true">
+  <nb-chat-form (send)="handleUserMessage($event)"
+                [dropFiles]="true"
+                messagePlaceholder="Escriba aquí">
   </nb-chat-form>
 
 </nb-chat>
