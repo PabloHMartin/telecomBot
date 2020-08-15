@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 const cors = require('cors')({ origin: true});
 const admin = require('firebase-admin');
-const serviceAccount = require('./phmartinchatbot-firebase-adminsdk-voudy-3a90819e7f.json');
+const serviceAccount = require('./service-account.json');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
