@@ -1,3 +1,6 @@
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { NbChatModule, NbSpinnerModule } from '@nebular/theme';
+
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,7 +14,10 @@ const components = [ShellComponent];
 const modules = [
   CommonModule,
   RouterModule,
-  LayoutModule
+  LayoutModule,
+  NbEvaIconsModule,
+  NbChatModule,
+  NbSpinnerModule,
 ];
 
 

@@ -7,14 +7,17 @@ import { ChatBotComponent } from './chat-bot.component';
 import { SpeechComponent } from './components/speech/speech.component';
 import { ConversationComponent } from './components/conversation/conversation.component';
 import { VisualOutputComponent } from './components/visual-output/visual-output.component';
+import { ChatWindowComponent } from './components/chat-window/chat-window.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
-  declarations: [ChatBotComponent, SpeechComponent, ConversationComponent, VisualOutputComponent],
+  declarations: [ChatBotComponent, SpeechComponent, ConversationComponent, VisualOutputComponent, ChatWindowComponent],
   imports: [
     CommonModule,
     ChatBotRoutingModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ]
 })
 export class ChatBotModule { }
