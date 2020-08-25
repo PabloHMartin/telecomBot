@@ -19,7 +19,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     SharedModule,
     NbThemeModule.forRoot({ name: 'corporate' }),
     NbLayoutModule,
-    NbEvaIconsModule
+    NbEvaIconsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

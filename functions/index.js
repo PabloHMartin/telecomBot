@@ -38,38 +38,18 @@ exports.dialogflowWebhook = functions.https.onRequest(async (request, response) 
 
     const result = request.body.queryResult;
 
-    async function welcome(agent) {
 
-      // adding test custom payload
-      const payload = {
-        key: 'value',
-        key2: 2
-      };
+    async function lastInvoice(agent) {
 
-      agent.add(
-        new Payload(agent.UNSPECIFIED, payload, {rawPayload: true, sendAsMessage: true})
-      );
-
-      agent.add(`Hola muyayo!`);
-    }
-
-
-
-    async function userOnboardingHandler(agent) {
-
-     // Do backend stuff here
      const db = admin.firestore();
-     const profile = db.collection('users').doc('jeffd23');
+     const lastInvoice = db.collection("facturas").orderBy("date", "desc").limit(1);
 
-     const { name, color } = result.parameters;
-
-      await profile.set({ name, color })
-      agent.add(`Welcome aboard my friend!`);
+     agent.add(
+        new Payload(agent.UNSPECIFIED, {payload: lastInvoice}, {rawPayload: true, sendAsMessage: true})
+     );
     }
-
 
     let intentMap = new Map();
-    //intentMap.set('UserOnboarding', userOnboardingHandler);
-    intentMap.set('Default Welcome Intent', welcome);
+    intentMap.set('lastInvoice', lastInvoice);
     agent.handleRequest(intentMap);
 });

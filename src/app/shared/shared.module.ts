@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShellComponent } from './shell/shell.component';
 import { LayoutModule } from '@angular/cdk/layout';
-
+import {MatToolbarModule} from '@angular/material/toolbar'
 
 
 const components = [ShellComponent];
@@ -18,6 +18,7 @@ const modules = [
   NbEvaIconsModule,
   NbChatModule,
   NbSpinnerModule,
+  MatToolbarModule
 ];
 
 
