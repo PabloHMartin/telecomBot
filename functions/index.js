@@ -31,6 +31,7 @@ exports.dialogflowGateway = functions.https.onRequest((request, response) => {
 
 
 const { WebhookClient } = require('dialogflow-fulfillment');
+const { Payload } = require("dialogflow-fulfillment");
 
 exports.dialogflowWebhook = functions.https.onRequest(async (request, response) => {
     const agent = new WebhookClient({ request, response });
@@ -38,8 +39,21 @@ exports.dialogflowWebhook = functions.https.onRequest(async (request, response) 
     const result = request.body.queryResult;
 
     async function welcome(agent) {
+
+      // adding test custom payload
+      const payload = {
+        key: 'value',
+        key2: 2
+      };
+
+      agent.add(
+        new Payload(agent.UNSPECIFIED, payload, {rawPayload: true, sendAsMessage: true})
+      );
+
       agent.add(`Hola muyayo!`);
     }
+
+
 
     async function userOnboardingHandler(agent) {
 

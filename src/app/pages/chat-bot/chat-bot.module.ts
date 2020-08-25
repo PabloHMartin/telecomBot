@@ -9,6 +9,7 @@ import { ConversationComponent } from './components/conversation/conversation.co
 import { VisualOutputComponent } from './components/visual-output/visual-output.component';
 import { ChatWindowComponent } from './components/chat-window/chat-window.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ChatbotService } from './services/chatbot.service';
 
 
 @NgModule({
@@ -18,6 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
     ChatBotRoutingModule,
     SharedModule,
     HttpClientModule
+  ],
+  providers: [
+    ChatbotService
   ]
 })
 export class ChatBotModule { }
