@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "phmartinchatbot"
+  },
+  "targets": {
+    "phmartinchatbot": {
+      "hosting": {
+        "telecomchatbot": [
+          "phmartinchatbot"
+        ]
+      }
+    }
   }
 }
