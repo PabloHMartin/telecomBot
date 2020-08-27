@@ -38,18 +38,31 @@ exports.dialogflowWebhook = functions.https.onRequest(async (request, response) 
 
     const result = request.body.queryResult;
 
-
     async function lastInvoice(agent) {
 
      const db = admin.firestore();
-     const lastInvoice = db.collection("facturas").orderBy("date", "desc").limit(1);
+     const lastInvoice = await db.collection('facturas').orderBy('date', 'desc').limit(1).get();
+     let docs = [];
+     lastInvoice.docs.map(doc => docs.push(doc.data()));
 
      agent.add(
-        new Payload(agent.UNSPECIFIED, {payload: lastInvoice}, {rawPayload: true, sendAsMessage: true})
+        new Payload(agent.UNSPECIFIED, {payload: docs}, {rawPayload: true, sendAsMessage: true})
      );
     }
 
+    async function facturas(agent){
+      const payload = {
+        linkUrl: 'facturas'
+      };
+
+      agent.add(
+        new Payload(agent.UNSPECIFIED, payload, {rawPayload: true, sendAsMessage: true})
+      );
+    }
+
+
     let intentMap = new Map();
     intentMap.set('lastInvoice', lastInvoice);
+    intentMap.set('infofacturas', facturas);
     agent.handleRequest(intentMap);
 });

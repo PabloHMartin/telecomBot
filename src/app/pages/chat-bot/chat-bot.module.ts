@@ -1,3 +1,4 @@
+import { DbService } from './services/db.service';
 import { SharedModule } from './../../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,10 +11,11 @@ import { VisualOutputComponent } from './components/visual-output/visual-output.
 import { ChatWindowComponent } from './components/chat-window/chat-window.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ChatbotService } from './services/chatbot.service';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 
 @NgModule({
-  declarations: [ChatBotComponent, SpeechComponent, ConversationComponent, VisualOutputComponent, ChatWindowComponent],
+  declarations: [ChatBotComponent, SpeechComponent, ConversationComponent, VisualOutputComponent, ChatWindowComponent, HomePageComponent],
   imports: [
     CommonModule,
     ChatBotRoutingModule,
@@ -21,7 +23,8 @@ import { ChatbotService } from './services/chatbot.service';
     HttpClientModule
   ],
   providers: [
-    ChatbotService
+    ChatbotService,
+    DbService
   ]
 })
 export class ChatBotModule { }

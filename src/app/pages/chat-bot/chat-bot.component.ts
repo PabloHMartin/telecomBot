@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat-bot',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatBotComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
+
+
+  navigateToUrl($event): void{
+    this.router.navigate([$event]);
+  }
+
+
 
 }

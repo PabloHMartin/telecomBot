@@ -8,6 +8,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +25,8 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     NbThemeModule.forRoot({ name: 'corporate' }),
     NbLayoutModule,
     NbEvaIconsModule,
+    AngularFireModule.initializeApp(environment),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

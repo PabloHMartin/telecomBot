@@ -1,3 +1,7 @@
-<app-chat-window></app-chat-window>
-<app-visual-output class="app-visual-output"></app-visual-output>
-<!-- <app-speech></app-speech> -->
+<app-chat-window class="app-chat-window" (linkUrlEvent)="navigateToUrl($event)">
+
+</app-chat-window>
+<div class="routes">
+  <!-- <app-visual-output class="app-visual-output"></app-visual-output> -->
+  <router-outlet></router-outlet>
+</div>
