@@ -1,0 +1,21 @@
+.invoice-list{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.invoice-list__data{
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.invoice-list__data__date{
+  color: #68a2f8;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-bottom: 0.2rem;
+}
+
+.invoice-list__icon:hover{
+  cursor: pointer;
+}

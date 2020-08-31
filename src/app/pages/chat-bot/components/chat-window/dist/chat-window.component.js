@@ -32,14 +32,17 @@ var ChatWindowComponent = /** @class */ (function () {
             var fulfillmentText = res.fulfillmentText;
             var webhookPayload = res.webhookPayload;
             if (webhookPayload) {
-                var webhookPayloadfields = _this.processCustomPayloadMessage(webhookPayload.fields);
-                if (webhookPayloadfields.linkUrl && webhookPayloadfields.linkUrl != null) {
-                    _this.linkUrlEvent.emit(webhookPayloadfields.linkUrl);
-                }
+                _this.handleWebhookPayload(webhookPayload);
             }
             _this.addBotMessage(fulfillmentText);
             _this.loading = false;
         }));
+    };
+    ChatWindowComponent.prototype.handleWebhookPayload = function (webhookPayload) {
+        var webhookPayloadfields = this.processCustomPayloadMessage(webhookPayload.fields);
+        if (webhookPayloadfields.linkUrl && webhookPayloadfields.linkUrl != null) {
+            this.linkUrlEvent.emit(webhookPayloadfields.linkUrl);
+        }
     };
     ChatWindowComponent.prototype.addUserMessage = function (text) {
         this.messages.push({

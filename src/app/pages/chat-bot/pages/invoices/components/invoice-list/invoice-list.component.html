@@ -1,0 +1,9 @@
+<div class="invoice-list" *ngFor="let invoice of invoices">
+  <div class="invoice-list__data">
+    <div class="invoice-list__data__date">{{invoice.date}}</div>
+    <div class="invoice-list__data__total">Total: {{invoice.totalAmount}} €</div>
+  </div>
+  <div class="invoice-list__icon">
+    <nb-icon icon="arrow-ios-forward-outline" (click)="invoiceDetails(invoice)"></nb-icon>
+  </div>
+</div>

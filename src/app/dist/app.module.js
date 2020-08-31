@@ -34,7 +34,7 @@ var AppModule = /** @class */ (function () {
                 theme_1.NbThemeModule.forRoot({ name: 'corporate' }),
                 theme_1.NbLayoutModule,
                 eva_icons_1.NbEvaIconsModule,
-                fire_1.AngularFireModule.initializeApp(environment_1.environment),
+                fire_1.AngularFireModule.initializeApp(environment_1.environment.firebaseConfig),
                 firestore_1.AngularFirestoreModule
             ],
             providers: [],

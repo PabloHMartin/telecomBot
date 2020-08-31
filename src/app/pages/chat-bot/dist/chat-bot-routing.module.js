@@ -7,8 +7,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.ChatBotRoutingModule = void 0;
+var invoices_component_1 = require("./pages/invoices/invoices.component");
 var home_page_component_1 = require("./components/home-page/home-page.component");
-var visual_output_component_1 = require("./components/visual-output/visual-output.component");
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var chat_bot_component_1 = require("./chat-bot.component");
@@ -16,7 +16,7 @@ var routes = [
     { path: '', component: chat_bot_component_1.ChatBotComponent,
         children: [
             { path: '', component: home_page_component_1.HomePageComponent },
-            { path: 'facturas', component: visual_output_component_1.VisualOutputComponent }
+            { path: 'facturas', component: invoices_component_1.InvoicesComponent }
         ]
     }
 ];

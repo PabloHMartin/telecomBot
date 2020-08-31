@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 
 export interface WebhookPayload{
   kind?: string;
+  fields?: any;
 }
 export interface WebhookPayloadfields{
   linkUrl?: string;
@@ -45,17 +46,20 @@ export class ChatWindowComponent implements OnInit, OnDestroy  {
       .subscribe(res => {
         const { fulfillmentText } = res;
         const { webhookPayload } = res;
-        if(webhookPayload){
-          const webhookPayloadfields: WebhookPayloadfields = this.processCustomPayloadMessage(webhookPayload.fields);
-          if (webhookPayloadfields.linkUrl && webhookPayloadfields.linkUrl != null){
-            this.linkUrlEvent.emit(webhookPayloadfields.linkUrl);
-          }
+        if (webhookPayload){
+          this.handleWebhookPayload(webhookPayload);
         }
-
         this.addBotMessage(fulfillmentText);
         this.loading = false;
       })
     );
+  }
+
+  handleWebhookPayload(webhookPayload: WebhookPayload): void{
+      const webhookPayloadfields: WebhookPayloadfields = this.processCustomPayloadMessage(webhookPayload.fields);
+      if (webhookPayloadfields.linkUrl && webhookPayloadfields.linkUrl != null){
+        this.linkUrlEvent.emit(webhookPayloadfields.linkUrl);
+      }
   }
 
   addUserMessage(text): void {

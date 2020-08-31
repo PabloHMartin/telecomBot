@@ -1,5 +1,6 @@
+import { IncidenciasComponent } from './pages/incidencias/incidencias.component';
+import { InvoicesComponent } from './pages/invoices/invoices.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
-import { VisualOutputComponent } from './components/visual-output/visual-output.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -9,7 +10,8 @@ const routes: Routes = [
   { path: '', component: ChatBotComponent,
     children: [
       {path: '', component: HomePageComponent},
-      { path: 'facturas', component: VisualOutputComponent }
+      { path: 'facturas', component: InvoicesComponent },
+      { path: 'incidencias', component: IncidenciasComponent }
     ]
   }
 ];

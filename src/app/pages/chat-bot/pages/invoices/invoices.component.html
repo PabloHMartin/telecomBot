@@ -1,0 +1,19 @@
+<div class="info-section">
+  <nb-card  accent="info" class="info-section__list">
+    <nb-card-body>
+      <app-invoice-list
+      [invoices]="(db.invoices$ | async)"
+      (invoiceEvent)="handleInvoiceEvent($event)"></app-invoice-list>
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card class="info-section__chart">
+    <app-chart [invoices]="(db.invoices$ | async)"></app-chart>
+  </nb-card>
+</div>
+<div class="details-section">
+  <nb-card accent="info" *ngIf="invoiceDetails">
+    <app-invoice-info
+    [invoice]="invoiceDetails"></app-invoice-info>
+  </nb-card>
+</div>
