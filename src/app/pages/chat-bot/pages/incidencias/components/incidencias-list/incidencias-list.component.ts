@@ -9,9 +9,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class IncidenciasListComponent implements OnInit {
   @Input() incidencias: Incidencia[];
 
+  displayedColumns: string[] = ['Estado', 'Fecha de apertura', 'Descripción', 'Facturas afectadas'];
+
   constructor() { }
 
+
   ngOnInit(): void {
+
   }
 
 }

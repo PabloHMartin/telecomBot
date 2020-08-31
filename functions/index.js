@@ -70,6 +70,16 @@ exports.dialogflowWebhook = functions.https.onRequest(async (request, response) 
       );
     }
 
+    async function humanchat(agent){
+      const payload = {
+        linkUrl: 'humanchat'
+      };
+
+      agent.add(
+        new Payload(agent.UNSPECIFIED, payload, {rawPayload: true, sendAsMessage: true})
+      );
+    }
+
     async function incidenciafactura(agent){
 
       const status = 'abierta';
@@ -94,6 +104,7 @@ exports.dialogflowWebhook = functions.https.onRequest(async (request, response) 
     intentMap.set('lastInvoice', lastInvoice);
     intentMap.set('infofacturas', facturas);
     intentMap.set('infoincidencias', incidencias);
+    intentMap.set('humanchat', humanchat);
     intentMap.set('incidenciafactura', incidenciafactura)
     agent.handleRequest(intentMap);
 });

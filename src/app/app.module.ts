@@ -11,11 +11,13 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { ChatHumanComponent } from './pages/chat-human/chat-human.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ChatHumanComponent,
   ],
   imports: [
     BrowserModule,

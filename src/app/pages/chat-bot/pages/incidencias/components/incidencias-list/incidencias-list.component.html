@@ -1,3 +1,40 @@
-<div *ngFor="let incidencia of incidencias">
-  {{incidencia | json}}
-</div>
+<table mat-table [dataSource]="incidencias"
+class="mat-elevation-z8"
+*ngIf="incidencias.length; else noIncidencias"
+>
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Estado Column -->
+    <ng-container matColumnDef="Estado">
+      <th mat-header-cell *matHeaderCellDef> Estado </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <!-- Fecha de apertura Column -->
+    <ng-container matColumnDef="Fecha de apertura">
+      <th mat-header-cell *matHeaderCellDef> Fecha de apertura </th>
+      <td mat-cell *matCellDef="let element"> {{element.timestamp.toDate() | date: 'short' }} </td>
+    </ng-container>
+
+    <!-- Descripción Column -->
+    <ng-container matColumnDef="Descripción">
+      <th mat-header-cell *matHeaderCellDef> Descripción </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <!-- Facturas afectadas Column -->
+    <ng-container matColumnDef="Facturas afectadas">
+      <th mat-header-cell *matHeaderCellDef> Facturas afectadas </th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+  <ng-template #noIncidencias>
+    No tienes incidencias
+  </ng-template>

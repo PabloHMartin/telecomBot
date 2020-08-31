@@ -8,6 +8,7 @@ import { ShellComponent } from './shell/shell.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { NbIconModule } from '@nebular/theme';
+import {MatTableModule} from '@angular/material/table';
 
 const components = [ShellComponent];
 
@@ -21,7 +22,8 @@ const modules = [
   MatToolbarModule,
   NbCardModule,
   NbEvaIconsModule,
-  NbIconModule
+  NbIconModule,
+  MatTableModule
 ];
 
 
