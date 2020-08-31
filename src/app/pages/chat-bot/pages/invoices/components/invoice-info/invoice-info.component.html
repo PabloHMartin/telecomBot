@@ -1,0 +1,15 @@
+<div class="details">
+  <div class="details__title">{{invoice.date}}</div>
+  <div class="details__charges">
+    <div class="details__charges__title">Llamadas</div>
+    <div class="details__charges__data">{{invoice.callCharges | currency: 'EUR'}}</div>
+  </div>
+  <div class="details__charges">
+    <div class="details__charges__title">SMS</div>
+    <div class="details__charges__data">{{invoice.smsCharges | currency: 'EUR'}}</div>
+  </div>
+  <div class="details__charges">
+    <div class="details__charges__title">Total</div>
+    <div class="details__charges__data">{{invoice.totalAmount | currency: 'EUR'}}</div>
+  </div>
+</div>

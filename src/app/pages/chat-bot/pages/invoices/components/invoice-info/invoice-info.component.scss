@@ -1,0 +1,26 @@
+:host{
+  padding: 1rem;
+}
+.details{
+  display: flex;
+  flex-direction: column;
+}
+
+.details__title{
+  font-size: 1.2rem;
+  color: #68a2f8;
+  font-weight: bold;
+  padding-bottom: 1rem;
+}
+
+.details__charges{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+.details__charges__title{
+  font-weight: bold;
+}
+.details_charges__data{
+
+}

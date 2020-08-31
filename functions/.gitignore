@@ -1,2 +1,7 @@
 node_modules/
+<<<<<<< HEAD
+./service-account.json
+=======
 ./phmartinchatbot-firebase-adminsdk-voudy-3a90819e7f.json
+src/environments
+>>>>>>> 3c40ea3bd34f14bf287f94c9bbdfd1c8e24eb9b5

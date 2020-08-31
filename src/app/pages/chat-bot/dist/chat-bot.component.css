@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 900px) {
+  .app-chat-window {
+    width: 25%;
+    height: 100vh;
+  }
+
+  .routes {
+    width: 75%;
+  }
+}
