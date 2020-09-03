@@ -1,24 +1,42 @@
 :host{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 1rem;
   justify-content: space-between;
 }
 .info-section{
   display: flex;
   flex-direction: column;
-  width: 45%;
-}
-.details-section{
-  width: 50%;
-}
-.info-section__list{
-  width: 100%;
-}
-.info-section__chart{
   width: 100%;
 }
 nb-card{
   border-radius: 10px;
   padding: 1rem;
+}
+
+@media (min-width: 900px){
+
+  :host{
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    justify-content: space-between;
+  }
+
+  .info-section{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+  }
+  .details-section{
+    width: 50%;
+  }
+  .info-section__list{
+    width: 100%;
+  }
+  .info-section__chart{
+    width: 100%;
+  }
+
+
 }

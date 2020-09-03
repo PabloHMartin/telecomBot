@@ -1,6 +1,7 @@
 import { ChatbotService } from './../../services/chatbot.service';
-import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnDestroy, Input, Inject, Optional } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { NB_WINDOW_CONTEXT } from '@nebular/theme';
 
 export interface WebhookPayload{
   kind?: string;
@@ -28,7 +29,10 @@ export class ChatWindowComponent implements OnInit, OnDestroy  {
   // Random ID to maintain session with DialogFlow server
   sessionId = Math.random().toString(36).slice(-5);
 
-  constructor(private chatbotService: ChatbotService) { }
+    // send an eventEmmiter in NbWindowService context property so that we can get events for mobile
+  constructor(
+    @Inject(NB_WINDOW_CONTEXT) @Optional() private context: MessagesWindowContext,
+    private chatbotService: ChatbotService) { }
 
   ngOnInit(): void {
     this.addBotMessage('Bienvenido al asistente virtual de facturación 🤖. ¿ En qué te ayudo? ');
@@ -59,7 +63,15 @@ export class ChatWindowComponent implements OnInit, OnDestroy  {
       const webhookPayloadfields: WebhookPayloadfields = this.processCustomPayloadMessage(webhookPayload.fields);
       if (webhookPayloadfields.linkUrl && webhookPayloadfields.linkUrl != null){
         this.linkUrlEvent.emit(webhookPayloadfields.linkUrl);
+        this.emitMobileMessage(webhookPayloadfields.linkUrl);
       }
+  }
+
+
+  emitMobileMessage(linkUrl: string): void {
+    if (this.context){
+      this.context.onMessageEmitted.next(linkUrl);
+    }
   }
 
   addUserMessage(text): void {
@@ -105,4 +117,9 @@ export class ChatWindowComponent implements OnInit, OnDestroy  {
   ngOnDestroy(): void {
     this.subscriptions.forEach( sub => sub.unsubscribe());
   }
+}
+
+
+export class MessagesWindowContext {
+  onMessageEmitted = new EventEmitter();
 }

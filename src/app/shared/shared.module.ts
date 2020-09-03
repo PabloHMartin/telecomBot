@@ -1,5 +1,5 @@
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { NbChatModule, NbSpinnerModule, NbCardModule } from '@nebular/theme';
+import { NbChatModule, NbSpinnerModule, NbCardModule, NbWindowModule } from '@nebular/theme';
 
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -9,6 +9,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { NbIconModule } from '@nebular/theme';
 import {MatTableModule} from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+
 
 const components = [ShellComponent];
 
@@ -23,7 +25,9 @@ const modules = [
   NbCardModule,
   NbEvaIconsModule,
   NbIconModule,
-  MatTableModule
+  MatTableModule,
+  NbWindowModule,
+  MatButtonModule,
 ];
 
 

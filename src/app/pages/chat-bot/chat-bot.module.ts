@@ -17,26 +17,36 @@ import { InvoiceListComponent } from './pages/invoices/components/invoice-list/i
 import { InvoiceInfoComponent } from './pages/invoices/components/invoice-info/invoice-info.component';
 import { IncidenciasComponent } from './pages/incidencias/incidencias.component';
 import { IncidenciasListComponent } from './pages/incidencias/components/incidencias-list/incidencias-list.component';
+import { ChatWindowModalComponent } from './components/chat-window-modal/chat-window-modal.component';
+import { NbWindowModule } from '@nebular/theme';
+
+
+const config = {
+  closeOnBackdropClick: true
+}
+
 
 @NgModule({
   declarations: [
     ChatBotComponent,
     SpeechComponent,
     ChatWindowComponent,
+    ChatWindowModalComponent,
     HomePageComponent,
     InvoicesComponent,
     ChartComponent,
-     InvoiceListComponent,
-     InvoiceInfoComponent,
-     IncidenciasComponent,
-     IncidenciasListComponent
+    InvoiceListComponent,
+    InvoiceInfoComponent,
+    IncidenciasComponent,
+    IncidenciasListComponent,
     ],
   imports: [
     CommonModule,
     ChatBotRoutingModule,
     SharedModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    NbWindowModule.forChild(config),
   ],
   providers: [
     ChatbotService,

@@ -12,7 +12,7 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ChatHumanComponent } from './pages/chat-human/chat-human.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +21,7 @@ import { ChatHumanComponent } from './pages/chat-human/chat-human.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
@@ -28,7 +29,7 @@ import { ChatHumanComponent } from './pages/chat-human/chat-human.component';
     NbLayoutModule,
     NbEvaIconsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
